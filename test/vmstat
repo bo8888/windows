@@ -1,0 +1,52 @@
+用法:
+  vmstat [-a] [-n] [delay [ count]]
+  vmstat [-f] [-s] [-m]
+  vmstat [-S unit]
+  vmstat [-d]
+  vmstat [-D]
+  vmstat [-p disk partition]
+  vmstat [-V]
+选项：
+  -a 						#显示活动/非活动的内存
+  -f 						#显示从开机到现在的forks的数目,等同于任务的创建总数
+  -n 						#只显示头部一次
+  -s 						#显示一个表包含各种事件计数器和内存统计
+  delay 					#刷新时间间隔
+  count 					#刷新次数
+  -d 						#显示磁盘相关统计信息
+  -D 						#显示活动的磁盘概要统计信息
+  -p 						#指定磁盘分区统计信息
+  -S						#使用指定单位显示。参数有k K m M ，分别代表1000 1024 1000000 1048576字节（byte）默认单位为K（1024 bytes）
+  -V						#显示vmstat版本信息。
+
+字段描述：
+ Procs
+   r						#等待运行的进程的数量
+   b						#睡眠的进程的数量
+ Memory 
+   swpd						#已使用的虚拟内存大小
+   free						#空闲的内存大小
+   buff						#缓冲区的内存大小
+   cache					#用于高速缓存的内存大小
+   inact					#不活跃的内存大小(-a option)
+   active					#活跃的内存大小(-a option)
+ Swap
+   si					        #从磁盘交换到内存的数量(/s)
+   so						#从内存交换到磁盘的的数量(/s)
+   IO
+   bi						#从一个块设备接收到的块数量(blocks/s)
+   bo						#发送给一个块设备的块数量(blocks/s)
+ System
+   in						#每秒的中断数,包含时间中断
+   cs						#每秒上下文切换的数
+   CPU						#总CPU时间的百分比
+   us						#运行非内核程序的时间(user time, including nice time)
+   sy						#运行内核程序的时间
+   id						#系统空闲时间(Prior to Linux 2.5.41, this includes IO-wait time)
+   wa					        #用在IO等待的时间
+   st						#从一虚拟机窃取的时间
+
+示例：(很简单，不再多说）
+  $ vmstat 2 
+  $ vmstat 2 5
+  $ vmstat -s
