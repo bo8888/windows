@@ -1,0 +1,11 @@
+apiversion: v1
+kind: pod
+metadata:
+  name: redis
+spec:
+  containers:
+    name: redis
+    image: docker.io/redis
+    ports:
+      containerPort: 8080
+
